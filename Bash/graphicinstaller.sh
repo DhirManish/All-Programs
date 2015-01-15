@@ -30,7 +30,7 @@ sudo cp /usr/local/lib/libgraph.* /usr/lib
 
 
 echo " now try this program for checking whether the graphic libraries are installed or not
-
+-------------------
 #include <iostream>
 #include<graphics.h>
 
@@ -43,5 +43,7 @@ int main(int argc, char **argv)
    closegraph();
 	return 0;
 }
-
+-------------
+to run this code use this command
+g++ CODE_NAME -o Executable-file-name -lgraph
 "
