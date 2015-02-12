@@ -24,12 +24,10 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.JTextComponent;
-import java.io.*;
-import java.util.*;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.IOException;
 
-/**
- * @author David
- */
 public class Test {
 
     public Test() {
@@ -55,8 +53,6 @@ public class Test {
         words.add("world");
         words.add("wall");
         
-        
-        ArrayList<String> ar = new ArrayList<>();
         try{
         BufferedReader br = new BufferedReader(new FileReader("file.txt"));
         String line = br.readLine();
@@ -64,7 +60,8 @@ public class Test {
 				words.add(line);
 				line = br.readLine();
 			}
-			System.out.println(words);
+			//just for testing
+			//System.out.println(words);
 			br.close();
 			}
 			catch(IOException ex){} 
