@@ -1,5 +1,5 @@
 /*
- * graphics.cxx
+ * graphicalarc.c++
  * 
  * Copyright 2015 manishdhir <manishdhir@manishdhir-HP-d530-SFF-DG058A>
  * 
@@ -30,11 +30,9 @@ int main(int argc, char **argv)
 {
 	int gd = DETECT,gm;
 	initgraph(&gd,&gm,NULL);
-   	line(100, 100, 200, 100);
-   	circle(250,250,90);
-   	rectangle(400,400,450,450);
-	line(50, 50, 40, 20);
-   	delay(50000);
+	arc(100,200,130,300,45);
+	delay(5600);
 	closegraph();
 	return 0;
 }
+

@@ -1,5 +1,5 @@
 /*
- * graphics.cxx
+ * fileoperation.cxx
  * 
  * Copyright 2015 manishdhir <manishdhir@manishdhir-HP-d530-SFF-DG058A>
  * 
@@ -23,18 +23,37 @@
 
 
 #include <iostream>
-#include <graphics.h>
+#include<string>
+#include<fstream>
 using namespace std;
+void printMessage(void);
+int times;
 
 int main(int argc, char **argv)
 {
-	int gd = DETECT,gm;
-	initgraph(&gd,&gm,NULL);
-   	line(100, 100, 200, 100);
-   	circle(250,250,90);
-   	rectangle(400,400,450,450);
-	line(50, 50, 40, 20);
-   	delay(50000);
-	closegraph();
+	ofstream file;
+	char c;	
+	times = 0;
+	do
+	{
+		cout<<"enter the value ";
+		cin>>c;
+	if(c == 's')
+		cout<<"input stopped\n";
+	else
+		printMessage();	
+	}while(c != 's');
+	file.open("newsql.R", ios::trunc | ios::binary);
+	file << "hello world"<<endl;
+	file << argv <<endl;
+	
+	file.close();
 	return 0;
 }
+void printMessage (void)
+{
+	times++;
+	cout<<"number  of times function called "<<times<<"\n"<<endl;
+	//cout<<"you entered "<<s<<"\n";
+}
+

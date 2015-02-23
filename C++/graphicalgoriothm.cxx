@@ -1,5 +1,5 @@
 /*
- * graphics.cxx
+ * graphicalgoriothm.cxx
  * 
  * Copyright 2015 manishdhir <manishdhir@manishdhir-HP-d530-SFF-DG058A>
  * 
@@ -28,13 +28,45 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
-	int gd = DETECT,gm;
+	int gd = DETECT, gm, x, i, y, xo = 50, xt = 100, yo = 100, yt = 200, b;
+	float m, dx, dy;
 	initgraph(&gd,&gm,NULL);
-   	line(100, 100, 200, 100);
-   	circle(250,250,90);
-   	rectangle(400,400,450,450);
-	line(50, 50, 40, 20);
-   	delay(50000);
+	dx = xt - xo;
+	dy = yt - yo;
+	m = dy / dx;
+	b = yo - (m * xo);
+	if(dx < 0){
+		y = yt;
+		x = xt;
+		for(i = xo; i <= xt; i++ ){
+			if(m <= 1){
+				x++;  
+				y = (m * x) + b;
+			}
+			else {
+				y++;
+				y = (y - b) / m;
+			}
+			putpixel(x,y,4);
+		}
+	}
+	else {
+		y = yo;
+		x = xo;
+		for(i = xo; i < xt; i++ ){
+			if(m <= 1){
+				y = (m * x) + b;
+				x++;  
+			}
+			else {
+				x = (y - b) / m;
+				y++;
+			}
+			putpixel(x,y,4);
+		}
+	}
+	delay(5000);
 	closegraph();
 	return 0;
 }
+

@@ -1,5 +1,5 @@
 /*
- * graphics.cxx
+ * hut.c++
  * 
  * Copyright 2015 manishdhir <manishdhir@manishdhir-HP-d530-SFF-DG058A>
  * 
@@ -28,13 +28,13 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
-	int gd = DETECT,gm;
+	int gd=DETECT,gm; 	
 	initgraph(&gd,&gm,NULL);
-   	line(100, 100, 200, 100);
-   	circle(250,250,90);
-   	rectangle(400,400,450,450);
-	line(50, 50, 40, 20);
-   	delay(50000);
+	line(100,100,150,150);
+	line(100,100,75,150);
+	line(150,150,75,150);
+	delay(5000);
 	closegraph();
 	return 0;
 }
+
