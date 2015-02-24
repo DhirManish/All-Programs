@@ -30,7 +30,6 @@ int main(int argc, char **argv)
 {
 	int gd = DETECT,gm;
 	initgraph(&gd,&gm,NULL);
-	// void ellipse(int xc, int yc, int stangle, int endangle, int rx, int ry);
 	ellipse(100,100,0,360,40,20);
 	delay(5600);
 	closegraph();
