@@ -26,30 +26,34 @@
 #include <graphics.h>
 using namespace std;
 int big(int, int);
+int small(int, int);
 int pixelpoints(int,int,int,int);
 
 int big(int a, int b){
 	return (a>b)?a:b;
 	}
-
+int small(int j, int k){
+	return (j<k)?j:k;
+}
 int pixelpoints(int m,int b,int x,int y){
 	if(m <= 1){
 		y = (m * x) + b;
 		x++;
-		return x,y;
+		return x;
 	}
 	else{
 		x = (y - b) / m;
 		y++;
-		return x,y;
+		return y;
 	}
 }
 
 int main(int argc, char **argv)
 {
-	int gd = DETECT, gm, x, i, y, xo = 100, xt = 100, yo = 100, yt = 200, b, max;
+	int gd = DETECT, gm, x, i, y, xo = 50, xt = 100, yo = 100, yt = 200, b, max,min;
 	float m, dx, dy;
 	max = big(big(xo,xt),big(yo,yt));
+	min = small(small(xo,xt),small(yo,yt));
 	initgraph(&gd,&gm,NULL);
 	if(xo == xt){
 	xt++;
@@ -61,16 +65,18 @@ int main(int argc, char **argv)
 	if(dx < 0 ){
 		y = yt;
 		x = xt;
-		for(i = xo; i <= max; i++){
-			pixelpoints(m,b,x,y);
+		cout<<"difference is negitive"<<endl;
+		for(i = min; i <= max; i++){
+			y = pixelpoints(m,b,x,y);
 			putpixel(x,y,4);
 		}
 	}
 	else {
 		y = yo;
 		x = xo;
-		for(i = xo; i <= max; i++){
-			pixelpoints(m,b,x,y);
+		cout<<"difference is positive"<<endl;
+		for(i = min; i <= max; i++){
+			y = pixelpoints(m,b,x,y);
 			putpixel(x,y,4);
 		}
 	}
