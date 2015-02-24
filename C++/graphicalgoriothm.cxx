@@ -26,14 +26,28 @@
 #include <graphics.h>
 using namespace std;
 int big(int, int);
+int pixelpoints(int,int,int,int);
 
 int big(int a, int b){
 	return (a>b)?a:b;
 	}
 
+int pixelpoints(int m,int b,int x,int y){
+	if(m <= 1){
+		y = (m * x) + b;
+		x++;
+		return x,y;
+	}
+	else{
+		x = (y - b) / m;
+		y++;
+		return x,y;
+	}
+}
+
 int main(int argc, char **argv)
 {
-	int gd = DETECT, gm, x, i, y, xo = 100, xt = 100, yo = 250, yt = 250, b, max;
+	int gd = DETECT, gm, x, i, y, xo = 100, xt = 100, yo = 100, yt = 200, b, max;
 	float m, dx, dy;
 	max = big(big(xo,xt),big(yo,yt));
 	initgraph(&gd,&gm,NULL);
@@ -47,30 +61,16 @@ int main(int argc, char **argv)
 	if(dx < 0 ){
 		y = yt;
 		x = xt;
-		for(i = xo; i <= max; i++ ){
-			if(m <= 1){
-				x++;  
-				y = (m * x) + b;
-			}
-			else {
-				y++;
-				y = (y - b) / m;
-			}
+		for(i = xo; i <= max; i++){
+			pixelpoints(m,b,x,y);
 			putpixel(x,y,4);
 		}
 	}
 	else {
 		y = yo;
 		x = xo;
-		for(i = xo; i < max; i++ ){
-			if(m <= 1){
-				y = (m * x) + b;
-				x++;  
-			}
-			else {
-				x = (y - b) / m;
-				y++;
-			}
+		for(i = xo; i <= max; i++){
+			pixelpoints(m,b,x,y);
 			putpixel(x,y,4);
 		}
 	}
