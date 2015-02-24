@@ -25,20 +25,29 @@
 #include <iostream>
 #include <graphics.h>
 using namespace std;
+int big(int, int);
+
+int big(int a, int b){
+	return (a>b)?a:b;
+	}
 
 int main(int argc, char **argv)
 {
-	int gd = DETECT, gm, x, i, y, xo = 50, xt = 100, yo = 100, yt = 200, b;
+	int gd = DETECT, gm, x, i, y, xo = 100, xt = 100, yo = 250, yt = 250, b, max;
 	float m, dx, dy;
+	max = big(big(xo,xt),big(yo,yt));
 	initgraph(&gd,&gm,NULL);
+	if(xo == xt){
+	xt++;
+	}
 	dx = xt - xo;
 	dy = yt - yo;
 	m = dy / dx;
 	b = yo - (m * xo);
-	if(dx < 0){
+	if(dx < 0 ){
 		y = yt;
 		x = xt;
-		for(i = xo; i <= xt; i++ ){
+		for(i = xo; i <= max; i++ ){
 			if(m <= 1){
 				x++;  
 				y = (m * x) + b;
@@ -53,7 +62,7 @@ int main(int argc, char **argv)
 	else {
 		y = yo;
 		x = xo;
-		for(i = xo; i < xt; i++ ){
+		for(i = xo; i < max; i++ ){
 			if(m <= 1){
 				y = (m * x) + b;
 				x++;  
