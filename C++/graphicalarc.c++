@@ -30,7 +30,7 @@ int main(int argc, char **argv)
 {
 	int gd = DETECT,gm;
 	initgraph(&gd,&gm,NULL);
-	arc(100,200,130,300,45);
+	arc(100,200,130,300,30);
 	delay(5600);
 	closegraph();
 	return 0;
