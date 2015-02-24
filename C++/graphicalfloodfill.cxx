@@ -31,21 +31,17 @@ int main(int argc, char **argv)
 	int gd = DETECT, gm;
 	initgraph(&gd, &gm, NULL);
 	setcolor(4);
-	//void ellipse(int xc, int yc, int stangle, int endangle, int rx, int ry);
 	ellipse(200,300,0,360,100,30);
 	floodfill(200,300,BLUE);
-	//trianle
 	setcolor(1);
 	line(190,50,150,150);
 	setcolor(3);
 	line(190,50,240,150);
 	setcolor(5);
 	line(150,150,240,150);
-	//circle 
 	setcolor(3);
 	circle(193,120,28);
 	floodfill(193,120,GREEN);
-	//circle
 	setcolor(2);
 	circle(195,195,30);
 	floodfill(190,190,RED);
