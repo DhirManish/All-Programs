@@ -61,22 +61,22 @@ int main(int argc, char **argv)
 		xend=xo;
 		cout<<"difference is negitive"<<endl;
 		for(i = x; i <= xend; i++){
-				if(m < 1){
-					cout<<"slope is negitive"<<endl;
-					while(x<=xo){
-						y = (m * x) + b;
-						x++;
-						putpixel(x,y,4);
-					}
+			if(m < 1){
+				cout<<"slope is negitive"<<endl;
+				while(x<=xo){
+					y = (m * x) + b;
+					x++;
+					putpixel(x,y,4);
 				}
-				if(m>1){
-					cout<<"slope is positive"<<endl;
-					while(y<=yo){
-						x = (y - b) / m;
-						y++;
-						putpixel(x,y,4);
-						}
-					}
+			}
+			if(m>1){
+				cout<<"slope is positive"<<endl;
+				while(y<=yo){
+					x = (y - b) / m;
+					y++;
+					putpixel(x,y,4);
+				}
+			}
 		}
 	}
 	else {
@@ -85,25 +85,24 @@ int main(int argc, char **argv)
 		xend=xt;
 		cout<<"difference is positive"<<endl;
 		for(i = x; i <= xend; i++){
-				if(m < 1){
-					cout<<"slope is negitive"<<endl;
-					while(x<=xt){
-						y = (m * x) + b;
-						x++;
-						putpixel(x,y,4);
-					}
+			if(m < 1){
+				cout<<"slope is negitive"<<endl;
+				while(x<=xt){
+					y = (m * x) + b;
+					x++;
+					putpixel(x,y,4);
 				}
-				if(m>1){
-					cout<<"slope is positive"<<endl;
-					while(y<=yt){
+			}
+			if(m>1){
+				cout<<"slope is positive"<<endl;
+				while(y<=yt){
 					x = (y - b) / m;
 					y++;
 					putpixel(x,y,4);
-					}
 				}
-				
 			}
 		}
+	}
 	line(xo,yo,xt,yt);
 	delay(5000);
 	closegraph();
