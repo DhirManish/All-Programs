@@ -25,24 +25,15 @@
 #include <iostream>
 #include <graphics.h>
 using namespace std;
-int big(int, int);
-int small(int, int);
-int pixelpoints(int,int,int,int);
 
-int big(int a, int b){
-	return (a>b)?a:b;
-	}
-int small(int j, int k){
-	return (j<k)?j:k;
-}
 int pixelpoints(int m,int b,int x,int y){
-	if(m <= 1){
-		y = (m * x) + b;
+	if(m < 1){
+		//y = (m * x) + b;
 		x++;
 		return x;
 	}
-	else{
-		x = (y - b) / m;
+	if(m>1){
+		//x = (y - b) / m;
 		y++;
 		return y;
 	}
@@ -50,36 +41,70 @@ int pixelpoints(int m,int b,int x,int y){
 
 int main(int argc, char **argv)
 {
-	int gd = DETECT, gm, x, i, y, xo = 50, xt = 100, yo = 100, yt = 200, b, max,min;
+	int gd = DETECT, gm, x, i, y, xo = 100, yo = 100, xt = 100, yt = 200, b, max,min,xend;
 	float m, dx, dy;
-	max = big(big(xo,xt),big(yo,yt));
-	min = small(small(xo,xt),small(yo,yt));
 	initgraph(&gd,&gm,NULL);
-	if(xo == xt){
-	xt++;
+	if(xo == xo){
+		xt++;
+	}
+	if(xt == yt){
+		yt++;
 	}
 	dx = xt - xo;
 	dy = yt - yo;
 	m = dy / dx;
+	cout<<m;
 	b = yo - (m * xo);
-	if(dx < 0 ){
+	if(dx < 0){
 		y = yt;
 		x = xt;
+		xend=xo;
 		cout<<"difference is negitive"<<endl;
-		for(i = min; i <= max; i++){
-			y = pixelpoints(m,b,x,y);
-			putpixel(x,y,4);
+		for(i = x; i <= xend; i++){
+				if(m < 1){
+					cout<<"slope is negitive"<<endl;
+					while(x<=xo){
+						y = (m * x) + b;
+						x++;
+						putpixel(x,y,4);
+					}
+				}
+				if(m>1){
+					cout<<"slope is positive"<<endl;
+					while(y<=yo){
+						x = (y - b) / m;
+						y++;
+						putpixel(x,y,4);
+						}
+					}
 		}
 	}
 	else {
 		y = yo;
 		x = xo;
+		xend=xt;
 		cout<<"difference is positive"<<endl;
-		for(i = min; i <= max; i++){
-			y = pixelpoints(m,b,x,y);
-			putpixel(x,y,4);
+		for(i = x; i <= xend; i++){
+				if(m < 1){
+					cout<<"slope is negitive"<<endl;
+					while(x<=xt){
+						y = (m * x) + b;
+						x++;
+						putpixel(x,y,4);
+					}
+				}
+				if(m>1){
+					cout<<"slope is positive"<<endl;
+					while(y<=yt){
+					x = (y - b) / m;
+					y++;
+					putpixel(x,y,4);
+					}
+				}
+				
+			}
 		}
-	}
+	line(xo,yo,xt,yt);
 	delay(5000);
 	closegraph();
 	return 0;
