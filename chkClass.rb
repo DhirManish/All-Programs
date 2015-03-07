@@ -24,4 +24,4 @@ puts "hello world".class
 puts 1.class
 puts (1.22).class
 puts [1,2,3].class
-
+puts true.class
