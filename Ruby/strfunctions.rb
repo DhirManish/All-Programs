@@ -24,6 +24,11 @@ num_one = 1.000
 
 num_two = 0.999
 
-//concatenation
+#chnaging fixnum to string
 puts num_one.to_s + "-" + 	num_two.to_s + " = " + (num_one-num_two).to_s 
 
+#reverseing string
+puts num_one.to_s.reverse
+
+#changing string to fixnum
+puts "1".to_i

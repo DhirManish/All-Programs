@@ -28,10 +28,11 @@ import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
 
+
+
 public class Test {
 
     public Test() {
-		
 	
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -342,7 +343,7 @@ class AutoSuggestor {
     public void addToDictionary(String word) {
         dictionary.add(word);
     }
-
+	
     boolean wordTyped(String typedWord) {
 
         if (typedWord.isEmpty()) {
@@ -351,7 +352,8 @@ class AutoSuggestor {
         //System.out.println("Typed word: " + typedWord);
 
         boolean suggestionAdded = false;
-
+        
+	
         for (String word : dictionary) {//get words in the dictionary which we added
             boolean fullymatches = true;
             for (int i = 0; i < typedWord.length(); i++) {//each string in the word
@@ -361,13 +363,14 @@ class AutoSuggestor {
                 }
             }
             if (fullymatches) {
-                addWordToSuggestions(word);
+				addWordToSuggestions(word);
                 suggestionAdded = true;
-            }
+                }
         }
         return suggestionAdded;
     }
 }
+
 
 class SuggestionLabel extends JLabel {
 

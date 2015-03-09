@@ -26,22 +26,9 @@
 #include <graphics.h>
 using namespace std;
 
-int pixelpoints(int m,int b,int x,int y){
-	if(m < 1){
-		//y = (m * x) + b;
-		x++;
-		return x;
-	}
-	if(m>1){
-		//x = (y - b) / m;
-		y++;
-		return y;
-	}
-}
-
 int main(int argc, char **argv)
 {
-	int gd = DETECT, gm, x, i, y, xo = 100, yo = 100, xt = 100, yt = 200, b, max,min,xend;
+	int gd = DETECT, gm, x, i, y, xo = 100, yo = 100, xt = 100, yt = 200, b, xend;
 	float m, dx, dy;
 	initgraph(&gd,&gm,NULL);
 	if(xo == xo){

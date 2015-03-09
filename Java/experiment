@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS activity_feed (,,,,
+  id int -11 NOT NULL AUTO_INCREMENT
+  initiator_id int -11 NOT NULL,
+  activity_type int,-11 NOT NULL,
+  goal_id int -11 DEFAULT NULL,
+  goal_name varchar -120 DEFAULT NULL
+  field_name varchar -120, DEFAULT NULL
+  initial_field_value varchar -120 DEFAULT NULL
+  new_field_value varchar -120 DEFAULT NULL
+  activity_time timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+  PRIMARY KEY (id),,,,
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1;,,,,
