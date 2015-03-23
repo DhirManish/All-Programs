@@ -28,26 +28,19 @@ using namespace std;
 int main(int argc, char **argv)
 {
 	char a[3];
-	int j=1;
+	int j=1,t;
 	cout<<"enter given value:";
 	cin>>a;
-	char cp;
-	cp=a[3];
-	cp=int(cp);
+	int cp;
+	cp=a[3]-'0';
 	for(int i=0;i<9;i+=2){
-		if(a[3] == char(i)){
-			cout<<i;
+		if(cp == i){
 			cout<<"even"<<endl;
 		}
-		else{
-			goto: l
-		}
 	}
-	l;
 	for(int j=1;j<=9;j+=2){
-		if(a[3]==char(j)){
-			cout<<j;
-			cout<<"odd";
+		if(cp==j){
+			cout<<"odd"<<endl;
 		}
 	}
 	return 0;
